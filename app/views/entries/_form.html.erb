@@ -1,0 +1,25 @@
+<div>
+  <%= simple_form_for(@entry, :html => {:class => 'form-vertical' }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="row">
+      <div class="form-inputs form-inline">
+        <div class="col-xs-4 text-center">
+          <%= f.input :distance, hint: "In Kilometers." %>
+        </div>
+        <div class="col-xs-4 text-center">
+          <%= f.input :time_period, hint: "In Minutes." %>
+        </div>
+
+        <div class="col-xs-4 text-center">
+          <%= f.input :date_time, input_html: { id: 'datetimepicker' } %>
+        </div>
+      </div>
+    </div>
+
+    <br/>
+    <div class="form-actions row text-center">
+      <%= f.button :submit, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

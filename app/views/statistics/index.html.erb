@@ -1,0 +1,25 @@
+<h3>Statistics</h3>
+<br/>
+
+<table class="table table-striped">
+
+    <tr>
+      <th>Week #</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Count</th>
+      <th>Avg Distance <small>(Km)</small></th>
+      <th>Avg Speed <small>(Km/H)</small></th>
+    </tr>
+
+    <% @weekly_reports.each do |weekly_report| %>
+      <tr>
+        <td><%= weekly_report.week_number %></td>
+        <td><%= weekly_report.date_from %></td>
+        <td><%= weekly_report.date_to %></td>
+        <td><%= weekly_report.count_entries %></td>
+        <td><%= weekly_report.avg_distance %></td>
+        <td><%= weekly_report.avg_speed %></td>
+      </tr>
+    <% end %>
+</table>

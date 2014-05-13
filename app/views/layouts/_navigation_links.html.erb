@@ -1,0 +1,25 @@
+<% if !user_signed_in? %>
+	<li><%= link_to "Sign in", new_user_session_path %></li>
+	<li><%= link_to "Sign up", new_user_registration_path %></li>
+<% else %>
+	<li class="<%= 'active' if current_page?(root_path) %>">
+		<%= link_to "Home", root_path %>
+	</li>
+
+	<li class="<%= 'active' if current_page?(statistics_path) %>" >
+		<%= link_to "Report", statistics_path %>
+	</li>
+
+	<li class="<%= 'active' if current_page?(edit_user_registration_path) %>">
+		<%= link_to "Edit your account", edit_user_registration_path %>
+	</li>
+
+	<% if current_user.admin? %>
+		<li class="<%= 'active' if current_page?(admin_root_path) %>">
+			<%= link_to "Admin", admin_root_path %>
+		</li>
+	<% end %>
+
+	<li><%= link_to "Sign out", destroy_user_session_path, data:{method: :delete} %></li>
+<% end %>
+
