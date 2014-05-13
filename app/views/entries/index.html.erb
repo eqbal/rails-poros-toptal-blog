@@ -1,0 +1,30 @@
+
+<br/>
+
+<div class="well row">
+  <div id="entry-form">
+    <div id="insert-form">
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<table class="table table-striped">
+    <tr>
+      <th>Distance</th>
+      <th>Time period</th>
+      <th>Date time</th>
+      <th>Avg Speed</th>
+      <th>Weather</th>
+      <th>Landform</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th></th>
+    </tr>
+
+    <%= render @entries %>
+</table>
+
+<br>
