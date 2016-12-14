@@ -1,5 +1,5 @@
 class CreateEntry
-  attr_accessor :entry_form
+  class NotValidEntryRecord < StandardError; end
 
   def initialize(user, params)
     @user   = user
@@ -18,11 +18,10 @@ class CreateEntry
         @params[:status_landform]
       )
 
-      entry.save
       # compare_speed_and_notify_user
-      true
+      entry.save!
     else
-      false
+      raise(NotValidEntryRecord, @entry_form.errors.full_messages.to_sentence)
     end
   end
 

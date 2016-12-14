@@ -7,12 +7,11 @@ class EntriesController < ApplicationController
   end
 
   def create
-    entry_service = CreateEntry.new(current_user, entry_params)
-
-    if entry_service.call
+    begin
+      CreateEntry.new(current_user, entry_params).call
       flash[:notice] = 'Entry was successfully created.'
-    else
-      flash[:error] = entry_service.entry_form.errors.full_messages.to_sentence
+    rescue Exception => e
+      flash[:error] = e.message
     end
 
     redirect_to root_path
